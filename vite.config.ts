@@ -15,7 +15,16 @@ export default defineConfig({
         manualChunks: {
           vendor: ['react', 'react-dom'],
           ethers: ['ethers']
-        }
+        },
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]'
+      }
+    },
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
       }
     }
   },
@@ -30,8 +39,17 @@ export default defineConfig({
   },
   define: {
     global: 'globalThis',
+    'process.env': {}
   },
   optimizeDeps: {
-    exclude: ['ethers']
+    include: ['react', 'react-dom', 'ethers'],
+    exclude: []
+  },
+  resolve: {
+    alias: {
+      buffer: 'buffer',
+      stream: 'stream-browserify',
+      util: 'util'
+    }
   }
 })

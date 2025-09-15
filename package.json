@@ -20,7 +20,9 @@
     "prettier:check": "prettier --check \"**/*.{js,json,md,sol,ts,yml}\"",
     "prettier:write": "prettier --write \"**/*.{js,json,md,sol,ts,yml}\"",
     "postcompile": "npm run typechain",
-    "typechain": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat typechain"
+    "typechain": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat typechain",
+    "build:prod": "npm run clean && npm run compile && tsc && vite build",
+    "build:vercel": "vite build"
   },
   "dependencies": {
     "@fhevm/solidity": "0.7.0",
@@ -49,6 +51,7 @@
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "@typescript-eslint/parser": "7.18.0",
     "@vitejs/plugin-react": "4.7.0",
+    "buffer": "^6.0.3",
     "chai": "4.5.0",
     "chai-as-promised": "8.0.2",
     "cross-env": "7.0.3",
@@ -56,6 +59,7 @@
     "eslint-config-prettier": "9.1.2",
     "eslint-plugin-react-hooks": "4.6.2",
     "eslint-plugin-react-refresh": "0.4.20",
+    "events": "^3.3.0",
     "globals": "15.15.0",
     "hardhat": "2.26.3",
     "hardhat-deploy": "0.11.45",
@@ -67,11 +71,13 @@
     "solhint": "5.2.0",
     "solhint-plugin-prettier": "0.1.0",
     "solidity-coverage": "0.8.16",
+    "stream-browserify": "^3.0.0",
     "ts-generator": "0.1.1",
     "ts-node": "10.9.2",
     "typechain": "8.3.2",
     "typescript": "5.9.2",
     "typescript-eslint": "8.43.0",
+    "util": "^0.12.5",
     "vite": "5.4.20"
   },
   "keywords": [
