@@ -9,7 +9,15 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/((?!assets/).*)",
+      "source": "/dapp",
+      "destination": "/public/index.html"
+    },
+    {
+      "source": "/test-buttons",
+      "destination": "/public/test_buttons.html"
+    },
+    {
+      "source": "/((?!assets/|public/).*)",
       "destination": "/index.html"
     }
   ],
