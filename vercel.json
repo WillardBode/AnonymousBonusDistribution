@@ -9,16 +9,8 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/dapp",
-      "destination": "/dapp.html"
-    },
-    {
       "source": "/test-buttons",
       "destination": "/test_buttons.html"
-    },
-    {
-      "source": "/((?!assets/|.*\\.html|.*\\.js|.*\\.css).*)",
-      "destination": "/index.html"
     }
   ],
   "headers": [
