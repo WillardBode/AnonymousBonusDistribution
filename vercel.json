@@ -10,14 +10,14 @@
   "rewrites": [
     {
       "source": "/dapp",
-      "destination": "/public/index.html"
+      "destination": "/dapp.html"
     },
     {
       "source": "/test-buttons",
-      "destination": "/public/test_buttons.html"
+      "destination": "/test_buttons.html"
     },
     {
-      "source": "/((?!assets/|public/).*)",
+      "source": "/((?!assets/|.*\\.html|.*\\.js|.*\\.css).*)",
       "destination": "/index.html"
     }
   ],

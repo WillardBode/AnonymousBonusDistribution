@@ -1,9 +1,29 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { copyFileSync } from 'fs'
+import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    {
+      name: 'copy-static-files',
+      writeBundle() {
+        // Copy static HTML files to dist directory
+        try {
+          copyFileSync(resolve(__dirname, 'public/index.html'), resolve(__dirname, 'dist/dapp.html'))
+          copyFileSync(resolve(__dirname, 'public/test_buttons.html'), resolve(__dirname, 'dist/test_buttons.html'))
+          copyFileSync(resolve(__dirname, 'public/script.js'), resolve(__dirname, 'dist/script.js'))
+          copyFileSync(resolve(__dirname, 'public/simple-wallet.js'), resolve(__dirname, 'dist/simple-wallet.js'))
+          copyFileSync(resolve(__dirname, 'public/styles.css'), resolve(__dirname, 'dist/styles.css'))
+          console.log('✅ Static files copied to dist/')
+        } catch (error) {
+          console.error('❌ Failed to copy static files:', error)
+        }
+      }
+    }
+  ],
   build: {
     outDir: 'dist',
     emptyOutDir: true,
